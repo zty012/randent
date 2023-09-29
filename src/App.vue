@@ -1,40 +1,53 @@
 <template>
   <div>
     <h2>随机点名</h2>
-    <h1>{{ number }}</h1>
-    <button @click="start" :disabled="disabled">开始</button>
+    <h1 v-if="current === ''" class="wait">准备开始</h1>
+    <h1 v-else>
+      恭喜
+      <span v-if="current.toString().length === 1">0{{ current }}</span>
+      <span v-else>{{ current }}</span>
+      中奖
+    </h1>
+    <button @click="stop" v-if="running">停止</button>
+    <button @click="start" v-else>开始</button>
     <button @click="exit">退出</button>
     <video
-      src="./assets/Galaxy_Brain_720P_30FPS.mp4"
+      src="./assets/1.mp3"
       ref="video"
-      v-show="disabled"
+      v-show="running"
+      @ended="onEnded"
     ></video>
+    <span class="info">v1.0.0 进才北校 2023级20班</span>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
+import students from "./students";
 
-const number = ref(-1);
-const disabled = ref(false);
+const current = ref<string>("");
+const running = ref<boolean>(false);
 const video = ref<HTMLVideoElement>();
+let t: NodeJS.Timeout;
 
 function start() {
-  disabled.value = true;
+  running.value = true;
   video.value?.play();
-  const t = setInterval(() => {
-    let v = Math.floor(Math.random() * 46) + 1;
-    if (v == 41 && Math.random() > 0.5) {
-      v = 32;
-    }
-    number.value = v;
-  }, 10);
-  setTimeout(() => {
-    clearInterval(t);
-    disabled.value = false;
-    video.value?.pause();
-    video.value!.currentTime = 0;
-  }, 6000);
+  t = setInterval(
+    () => (current.value = students[Math.floor(Math.random() * 45)]),
+    10
+  );
+}
+
+function stop() {
+  clearInterval(t);
+  running.value = false;
+  video.value?.pause();
+}
+
+function onEnded() {
+  video.value!.currentTime = 0;
+  video.value?.play();
 }
 
 function exit() {

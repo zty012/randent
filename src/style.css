@@ -32,8 +32,20 @@ body {
 }
 
 h1 {
-  font-size: 25em;
+  font-size: 8em;
   line-height: 0.3;
+  margin: 1em 0;
+  color: #aaa;
+}
+h1 span {
+  display: inline-block;
+  width: 3em;
+  font-size: 12rem;
+  color: #fff;
+}
+
+h2 {
+  font-size: 5em;
 }
 
 button {
@@ -46,7 +58,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  margin: 0 0.7em;
+  margin: 0 2em;
+  transform: scale(1.5);
 }
 button:hover {
   border-color: #646cff;
@@ -64,7 +77,7 @@ video {
   bottom: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 0.3;
+  opacity: 1;
   pointer-events: none;
 }
 
@@ -73,6 +86,12 @@ video {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.info {
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
 }
 
 @media (prefers-color-scheme: light) {
