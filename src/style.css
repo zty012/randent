@@ -31,23 +31,6 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 8em;
-  line-height: 0.3;
-  margin: 1em 0;
-  color: #aaa;
-}
-h1 span {
-  display: inline-block;
-  width: 3em;
-  font-size: 12rem;
-  color: #fff;
-}
-
-h2 {
-  font-size: 5em;
-}
-
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -56,10 +39,9 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
+  color: #fff;
   cursor: pointer;
   transition: border-color 0.25s;
-  margin: 0 2em;
-  transform: scale(1.5);
 }
 button:hover {
   border-color: #646cff;
@@ -67,18 +49,6 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: none;
-}
-
-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  opacity: 1;
-  pointer-events: none;
 }
 
 #app {
@@ -92,17 +62,4 @@ video {
   position: fixed;
   right: 1em;
   bottom: 1em;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
