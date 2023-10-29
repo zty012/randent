@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, dialog } from "electron";
 import path from "node:path";
 
 // The built directory structure
@@ -60,4 +60,27 @@ app.on("activate", () => {
   }
 });
 
-app.whenReady().then(createWindow);
+app.whenReady().then(async () => {
+  createWindow();
+  // 如果之间为12:00-12:30，无法启动
+  const d = new Date();
+  if (d.getHours() === 12 && d.getMinutes() < 30) {
+    const res1 = await dialog.showMessageBox(win!, {
+      type: "error",
+      title: "Fuck you 王俊烨(yè)",
+      message: "Nope",
+      detail: "12:00-12:30 无法启动随机点名",
+      buttons: ["我不服", "退出"],
+    });
+    if (res1.response === 0) {
+      await dialog.showMessageBox({
+        type: "question",
+        title: "欸嘿",
+        message: "欸嘿",
+        buttons: ["「欸嘿」是什么意思啊！"],
+      });
+    }
+    win?.close();
+    app.quit();
+  }
+});

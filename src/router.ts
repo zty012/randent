@@ -1,16 +1,19 @@
-import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
+import { RouteRecordRaw, createRouter, createWebHashHistory } from "vue-router";
 
 const routes: RouteRecordRaw[] = [
   {
-    name: "随机点名",
     path: "/",
-    component: () => import("./views/Random.vue"),
+    redirect: "/0",
+  },
+  {
+    path: "/:gacha",
+    component: () => import("./views/Gacha.vue"),
   },
 ];
 
 const router = createRouter({
   routes,
-  history: createWebHistory(),
+  history: createWebHashHistory(),
 });
 
 export default router;

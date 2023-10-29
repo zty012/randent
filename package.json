@@ -1,11 +1,11 @@
 {
   "name": "randent",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.1.1",
   "author": {
     "name": "进才北校 2023级20班"
   },
-  "description": "随机点名",
+  "description": "随机点名，不止是随机点名",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build && electron-builder",

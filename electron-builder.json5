@@ -5,7 +5,7 @@
   "$schema": "https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json",
   "appId": "me.shikukuya.randent",
   "asar": true,
-  "productName": "随机点名",
+  "productName": "不止是随机点名",
   "directories": {
     "output": "release/${version}"
   },
