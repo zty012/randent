@@ -3,10 +3,14 @@ import { RouteRecordRaw, createRouter, createWebHashHistory } from "vue-router";
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    redirect: "/0",
+    redirect: "/camera",
   },
   {
-    path: "/:gacha",
+    path: "/camera",
+    component: () => import("./views/Camera.vue"),
+  },
+  {
+    path: "/gacha/:gacha",
     component: () => import("./views/Gacha.vue"),
   },
 ];

@@ -1,12 +1,12 @@
 <template>
   <div class="app-inner">
     <main>
-      <gacha-selector />
       <router-view v-slot="{ Component, route }" class="view">
         <transition mode="out-in">
           <component :is="Component" :key="route.path" />
         </transition>
       </router-view>
+      <gacha-selector />
     </main>
     <div class="copyright">
       v{{ packagejson.version }} - 进才北校 2022级20班
@@ -50,7 +50,7 @@ import packagejson from "../package.json";
   .copyright {
     position: fixed;
     right: 1em;
-    bottom: 1em;
+    top: 1em;
   }
 }
 </style>
