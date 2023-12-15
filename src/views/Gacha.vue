@@ -24,11 +24,11 @@
         开始
         {{ count > 1 ? `(${count} 连)` : "(单抽)" }}
       </button>
-      <select v-model="music">
+      <!-- <select v-model="music">
         <optgroup label="Music">
           <option :value="url" v-for="(url, name) in musics">{{ name }}</option>
         </optgroup>
-      </select>
+      </select> -->
     </div>
   </div>
 </template>

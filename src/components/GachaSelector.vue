@@ -2,7 +2,7 @@
   <div class="gacha-selector">
     <div class="links">
       <router-link to="/" class="gacha exit" @click="exit">退出</router-link>
-      <router-link to="/camera" class="gacha camera">展台</router-link>
+      <!-- <router-link to="/camera" class="gacha camera">展台</router-link> -->
       <router-link
         v-for="(gacha, index) in gachas"
         :to="`/gacha/${index}`"
@@ -57,6 +57,10 @@ function exit() {
       color: #fff;
     }
     &.camera {
+      background-color: #6868e2;
+      color: #fff;
+    }
+    &.router-link-active {
       background-color: #6868e2;
       color: #fff;
     }
